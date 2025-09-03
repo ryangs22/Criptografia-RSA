@@ -65,5 +65,5 @@ Após instalar a GMP, compile o código com:
 
 ## ⚠️ Observações:
 - Use números primos suficientes grandes para segurança
-- A quantidade de letras/símbolos/números é limitada a 2048 caracteres. Para alterar a quantidade para mais ou para menos, modifique o valor da variável global USER_INPUT_SIZE no começo do código para a quantidade de caracteres desejada
+- A quantidade de letras/símbolos/números é limitada a 2048 caracteres. Para alterar a quantidade para mais ou para menos, modifique o valor da variável global `USER_INPUT_SIZE` no começo do código para a quantidade de caracteres desejada
 - Programa com fins educacionais
