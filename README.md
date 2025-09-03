@@ -57,11 +57,15 @@ Após instalar a GMP, compile o código com:
    - Forneça os primos originais (p, q) e o expoente (e)
    - Cole os blocos criptografados
    - A mensagem original será salva em `texto_desencriptado.txt`
+  
+---
 
 ## 📊 Arquivos Gerados:
    - `chave_publica.txt` - Contém a chave pública no formato e,n
    - `texto_encriptado.txt` - Armazena o texto criptografado
    - `texto_desencriptado.txt` - Contém o texto descriptografado
+
+---
 
 ## ⚠️ Observações:
 - Use números primos suficientes grandes para segurança
