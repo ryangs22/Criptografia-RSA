@@ -2,7 +2,7 @@
 
 Este repositório contém duas implementações do algoritmo de criptografia RSA: uma em **C** utilizando a biblioteca **GMP** para manipulação de grandes números, e um site interativo desenvolvido em **HTML, CSS e JavaScript** para visualização e uso prático do RSA no navegador.
 
-⚠️ A integração via WebAssembly (WASM) junto com o código C seria muito trabalhosa quando se tratando da biblioteca GMP (números extremamente grandes), podendo causar erros em cálculos ou de impressão na tela e por isso achei mais viável adaptar para um código JS
+⚠️ A integração via WebAssembly (WASM) do código C seria muito trabalhosa quando se tratando da biblioteca GMP (números extremamente grandes), podendo causar erros em cálculos ou de impressão na tela e por isso achei mais viável adaptar para um site interativo com HTML, CSS e JS executando as mesmas funções do código em C.
 
 ---
 
@@ -100,5 +100,5 @@ Após instalar a GMP, compile o código com:
 
 ## ⚠️ Observações:
 - Use números primos suficientemente grandes para garantir segurança (recomenda-se a partir de 6 dígitos) 
-- A quantidade de letras/símbolos/números é limitada a 2048 caracteres. Para alterar a quantidade para mais ou para menos, modifique o valor da variável global `USER_INPUT_SIZE` no começo do código para a quantidade de caracteres desejada
+- A quantidade de letras/símbolos/números é limitada a 2048 caracteres. Para alterar a quantidade para mais ou para menos, modifique o valor da constante global `USER_INPUT_SIZE` no começo do código para a quantidade de caracteres desejada
 - Programa com fins educacionais
