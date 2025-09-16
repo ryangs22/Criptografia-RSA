@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRIPTOGRAFIA RSA - Ryan Gabriel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Share+Tech&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="container">
+        <h1>CRIPTOGRAFIA RSA</h1>
+        <p class="description">
+            Este projeto apresenta uma versão do algoritmo RSA adaptada do código original em C (que utiliza a biblioteca GMP para cálculos com grandes números) para JavaScript, permitindo sua execução diretamente no navegador. O RSA é um pilar da segurança digital, baseando-se na geração de chaves a partir de primos grandes (p e q), com o módulo n = p*q e a função totiente φ(n) = (p-1)(q-1). Um expoente público e é escolhido coprimo a φ(n), e o inverso modular d é usado para descriptografia. A criptografia calcula c = m^e mod n, e a descriptografia recupera m = c^d mod n, garantindo segurança através da complexidade de fatorar grandes números.
+        </p>
+
+        <div class="message-input-container" style="display: none;">
+            <input type="text" id="messageInput" class="message-input" placeholder="Digite a mensagem a ser encriptada/desencriptada (ASCII 32-126)..." autocomplete="off" role="presentation" aria-label="Mensagem ou blocos">
+        </div>
+
+        <div class="buttons">
+            <button id="genKeyBtn">Gerar Chave Pública</button>
+            <button id="encMsgBtn">Encriptar Mensagem</button>
+            <button id="decMsgBtn">Desencriptar Mensagem</button>
+        </div>
+
+        <div id="genForm" class="form-section">
+            <div class="form-group">
+                <label for="pInput">Número primo p:</label>
+                <input type="text" id="pInput" autocomplete="off" role="presentation" aria-label="Número primo p">
+            </div>
+            <div class="form-group">
+                <label for="qInput">Número primo q:</label>
+                <input type="text" id="qInput" autocomplete="off" role="presentation" aria-label="Número primo q">
+            </div>
+            <div class="form-group">
+                <label for="eInput">Expoente e (coprimo com φ(n)):</label>
+                <input type="text" id="eInput" autocomplete="off" role="presentation" aria-label="Expoente e">
+            </div>
+            <button class="confirm-btn" onclick="generateKey()">Confirmar</button>
+        </div>
+
+        <div id="encForm" class="form-section">
+            <div class="form-group">
+                <label for="encEInput">Expoente e:</label>
+                <input type="text" id="encEInput" autocomplete="off" role="presentation" aria-label="Expoente e">
+            </div>
+            <div class="form-group">
+                <label for="encNInput">Módulo n:</label>
+                <input type="text" id="encNInput" autocomplete="off" role="presentation" aria-label="Módulo n">
+            </div>
+            <button class="confirm-btn" onclick="encryptMessage()">Confirmar</button>
+        </div>
+
+        <div id="decForm" class="form-section">
+            <div class="form-group">
+                <label for="decPInput">Número primo p:</label>
+                <input type="text" id="decPInput" autocomplete="off" role="presentation" aria-label="Número primo p">
+            </div>
+            <div class="form-group">
+                <label for="decQInput">Número primo q:</label>
+                <input type="text" id="decQInput" autocomplete="off" role="presentation" aria-label="Número primo q">
+            </div>
+            <div class="form-group">
+                <label for="decEInput">Expoente e:</label>
+                <input type="text" id="decEInput" autocomplete="off" role="presentation" aria-label="Expoente e">
+            </div>
+            <button class="confirm-btn" onclick="decryptMessage()">Confirmar</button>
+        </div>
+
+        <footer class="footer">
+            All Rights Reserved to Ryan Gabriel - 2025
+        </footer>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+            <button class="copy-btn" onclick="copyToClipboard()">Copiar Resultado</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+</html>
