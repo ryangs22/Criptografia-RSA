@@ -35,7 +35,7 @@ canvas {
 
 h1 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 10px;
     text-shadow: 0 0 10px #004e92;
     animation: glow 2s ease-in-out infinite alternate;
@@ -48,7 +48,7 @@ h1 {
 
 .description {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 40px;
     line-height: 1.6;
     max-width: 800px;
@@ -67,7 +67,7 @@ h1 {
 
 button {
     padding: 15px 30px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     border: 2px solid transparent;
     border-radius: 10px;
@@ -126,6 +126,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: 400;
+    font-size: 0.9rem;
 }
 
 input[type="text"], input[type="number"] {
@@ -135,6 +136,7 @@ input[type="text"], input[type="number"] {
     border-radius: 5px;
     background: #ffffff;
     color: #000000;
+    font-size: 0.9rem;
 }
 
 .confirm-btn {
@@ -152,12 +154,13 @@ input[type="text"], input[type="number"] {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
+    font-size: 0.9rem;
 }
 
 .footer {
     text-align: center;
     padding: 20px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     opacity: 0.7;
     border-top: 1px solid #004e92;
     margin-top: 4px;
@@ -197,7 +200,7 @@ input[type="text"], input[type="number"] {
 
 .modal-title {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
     text-shadow: 0 0 10px #004e92;
     animation: glow 2s ease-in-out infinite alternate;
@@ -207,7 +210,7 @@ input[type="text"], input[type="number"] {
     position: absolute;
     top: 10px;
     right: 15px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
     color: #ffffff;
 }
@@ -220,27 +223,52 @@ input[type="text"], input[type="number"] {
 .result-text {
     font-family: "Silkscreen", sans-serif;
     white-space: pre-wrap;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-top: 10px;
 }
 
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
-    .description { font-size: 1rem; }
+    .description { font-size: 0.9rem; }
     .buttons { flex-direction: column; align-items: center; }
-    button { width: 100%; max-width: 300px; }
-    .modal-title { font-size: 1.5rem; }
+    button { width: 100%; max-width: 300px; font-size: 0.8rem; }
+    .modal-title { font-size: 1.3rem; }
+    .confirm-btn {
+        width: 100%;
+        max-width: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    label { font-size: 0.8rem; }
+    input[type="text"], input[type="number"] { font-size: 0.8rem; }
+    .message-input { font-size: 0.8rem; }
+    .footer { font-size: 0.7rem; }
+    .result-text { font-size: 0.9rem; }
 }
 
 @media (max-width: 480px) {
     .container { padding: 10px; }
     h1 { font-size: 1.5rem; }
-    .description { font-size: 0.9rem; }
-    .modal-title { font-size: 1.2rem; }
+    .description { font-size: 0.8rem; }
+    .modal-title { font-size: 1.1rem; }
+    button { font-size: 0.7rem; }
+    label { font-size: 0.7rem; }
+    input[type="text"], input[type="number"] { font-size: 0.7rem; }
+    .message-input { font-size: 0.7rem; }
+    .footer { font-size: 0.6rem; }
+    .result-text { font-size: 0.8rem; }
+    .close-btn { font-size: 1.5rem; }
 }
 
 @media (min-width: 1200px) {
     h1 { font-size: 4rem; }
-    .description { font-size: 1.5rem; }
-    .modal-title { font-size: 2.2rem; }
+    .description { font-size: 1.2rem; }
+    .modal-title { font-size: 1.8rem; }
+    button { font-size: 1rem; }
+    label { font-size: 1rem; }
+    input[type="text"], input[type="number"] { font-size: 1rem; }
+    .message-input { font-size: 1rem; }
+    .footer { font-size: 0.9rem; }
+    .result-text { font-size: 1.1rem; }
 }
