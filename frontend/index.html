@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRIPTOGRAFIA RSA - Ryan Gabriel</title>
+    <title>NEXKEY</title>
+    <link rel="icon" type="image/png" href="nexkey.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Share+Tech&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Share+Tech&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-    
 <body>
     <canvas id="particles"></canvas>
     <div class="container">
-        <h1>CRIPTOGRAFIA RSA</h1>
-        <p class="description">
-            Este projeto apresenta uma versão do algoritmo RSA adaptada do código original em C (que utiliza a biblioteca GMP para cálculos com grandes números) para JavaScript, permitindo sua execução diretamente no navegador. O RSA é um pilar da segurança digital, baseando-se na geração de chaves a partir de primos grandes (p e q), com o módulo n = p*q e a função totiente φ(n) = (p-1)(q-1). Um expoente público e é escolhido coprimo a φ(n), e o inverso modular d é usado para descriptografia. A criptografia calcula c = m^e mod n, e a descriptografia recupera m = c^d mod n, garantindo segurança através da complexidade de fatorar grandes números.
+        <h1>NEXKEY</h1>
+        <p class="description"> Criptografe e Descriptografe mensagens usando o algoritmo RSA (baseado em números primos grandes). Este algoritmo é amplamente utilizado para proteger dados sensíveis, garantindo a confidencialidade e a integridade das informações.
+        
+        <br><br> - NÃO é permitido letras com acento (como à, é, í).
+        <br> - Apenas os caracteres de 32-126 da tabela ASCII são aceitos. 
+        <br> - Recomenda-se utilizar números primos grandes (p e q) para aumentar a segurança da chave pública.
         </p>
 
         <div class="message-input-container" style="display: none;">
-            <input type="text" id="messageInput" class="message-input" placeholder="Digite a mensagem a ser encriptada/desencriptada (ASCII 32-126)..." autocomplete="off" role="presentation" aria-label="Mensagem ou blocos">
+            <input type="text" id="messageInput" class="message-input" placeholder="Digite a mensagem a ser encriptada/desencriptada" autocomplete="off" role="presentation" aria-label="Mensagem ou blocos">
         </div>
 
         <div class="buttons">
-            <button id="genKeyBtn">Gerar Chave Pública</button>
-            <button id="encMsgBtn">Encriptar Mensagem</button>
-            <button id="decMsgBtn">Desencriptar Mensagem</button>
+            <button id="genKeyBtn">GERAR CHAVE PÚBLICA</button>
+            <button id="encMsgBtn">ENCRIPTAR MENSAGEM</button>
+            <button id="decMsgBtn">DESCRIPTOGRAFAR MENSAGEM</button>
         </div>
 
         <div id="genForm" class="form-section">
@@ -42,7 +45,7 @@
                 <label for="eInput">Expoente e (coprimo com φ(n)):</label>
                 <input type="text" id="eInput" autocomplete="off" role="presentation" aria-label="Expoente e">
             </div>
-            <button class="confirm-btn" onclick="generateKey()">Confirmar</button>
+            <button class="confirm-btn" onclick="generateKey()">CONFIRMAR</button>
         </div>
 
         <div id="encForm" class="form-section">
@@ -54,7 +57,7 @@
                 <label for="encNInput">Módulo n:</label>
                 <input type="text" id="encNInput" autocomplete="off" role="presentation" aria-label="Módulo n">
             </div>
-            <button class="confirm-btn" onclick="encryptMessage()">Confirmar</button>
+            <button class="confirm-btn" onclick="encryptMessage()">CONFIRMAR</button>
         </div>
 
         <div id="decForm" class="form-section">
@@ -70,7 +73,7 @@
                 <label for="decEInput">Expoente e:</label>
                 <input type="text" id="decEInput" autocomplete="off" role="presentation" aria-label="Expoente e">
             </div>
-            <button class="confirm-btn" onclick="decryptMessage()">Confirmar</button>
+            <button class="confirm-btn" onclick="decryptMessage()">CONFIRMAR</button>
         </div>
 
         <footer class="footer">
@@ -82,10 +85,9 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <div id="modalBody"></div>
-            <button class="copy-btn" onclick="copyToClipboard()">Copiar Resultado</button>
+            <button class="copy-btn" onclick="copyToClipboard()">COPIAR RESULTADO</button>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
-    
 </html>
