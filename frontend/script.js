@@ -82,6 +82,8 @@ function closeAllForms() {
         document.getElementById(formId).classList.remove('open');
     });
     document.querySelector('.message-input-container').style.display = 'none';
+    
+    document.getElementById('messageInput').value = '';
 }
 
 // Função auxiliar para GCD com BigInt (Grandes Inteiros)
@@ -150,7 +152,7 @@ document.getElementById('encMsgBtn').addEventListener('click', () => {
 document.getElementById('decMsgBtn').addEventListener('click', () => {
     closeAllForms();
     document.getElementById('decForm').classList.add('open');
-    document.getElementById('messageInput').placeholder = 'Digite os blocos criptografados (separados por espaço)...';
+    document.getElementById('messageInput').placeholder = 'Digite os blocos criptografados...';
     document.querySelector('.message-input-container').style.display = 'block';
 });
 
@@ -180,8 +182,8 @@ function generateKey() {
     }
 
     const n = p * q;
-    if (n <= 28n) {
-        alert('n deve ser maior que 28.');
+    if (n < 127n) {
+        alert('O produto de p * q (módulo n) deve ser no mínimo 127 para suportar todos os caracteres da tabela ASCII.');
         return;
     }
 
@@ -193,7 +195,6 @@ function generateKey() {
 
     const key = `e: ${e}\nn: ${n}`;
 
-    // Gera o PDF contendo a chave pública
     try {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -336,12 +337,16 @@ function showModal(content, title) {
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modalBody');
     modalBody.innerHTML = '';
+    
     const modalTitle = document.createElement('div');
     modalTitle.className = 'modal-title';
     modalTitle.textContent = title;
+    
     const resultText = document.createElement('pre');
     resultText.className = 'result-text';
+    resultText.id = 'resultContent';
     resultText.textContent = content;
+    
     modalBody.appendChild(modalTitle);
     modalBody.appendChild(resultText);
     modal.style.display = 'block';
@@ -352,9 +357,14 @@ function closeModal() {
 }
 
 function copyToClipboard() {
-    const text = document.getElementById('modalBody').textContent;
-    navigator.clipboard.writeText(text).then(() => {
+    const resultContent = document.getElementById('resultContent');
+    if (!resultContent) return;
+
+    const textToCopy = resultContent.textContent;
+    navigator.clipboard.writeText(textToCopy).then(() => {
         alert('Copiado para a área de transferência!');
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
     });
 }
 
